@@ -1,19 +1,3 @@
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% About MainCode.m : This file is a MATLAB M-file.        %%%%%%%%%%%%%%%%                       
-% It runs in Matlab software of Mathworks                 %%%%%%%%%%%%%%%%
-% ''''''''''''''''''''''''''''''''''''''''''''''''''''''''%%%%%%%%%%%%%%%%
-% Property of :  Electronics For You Magazine & efymag.com and
-% ElectronicsForYou.com 
-% Author: Vijaykumar Sajjanar,Dept of EC,BLDEA's CET,Vijayapur,Karnataka
-% Author mailID: ec.vijaykumar@bldeacet.ac.in
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-% Project Description: Presented here is a code to generate certificates  
-% for workshops, conferences, symposium etc. 
-% The same can be extended to generate reports for large data sets. 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 clc % Clear command window.
 clear all %Clear variables and functions from memory
@@ -65,13 +49,19 @@ for i=1:len
     end
 end
 % Obtain Batch from the txt variable which are in 3rd column
+for i=1:len
+    for j= 7:7
+      text_fname(i,j)=txt(i,j)
+    end
+end
+% Obtain Batch from the txt variable which are in 3rd column
 
 %Ignore first row which is heading
 for i=2:len
-        text_all=[text_names(i,2) text_date(i,3) text_rollno(i,4) text_enroll(i,5) text_batch(i,6)]
+        text_all=[text_names(i,2) text_date(i,3) text_rollno(i,4) text_enroll(i,5) text_batch(i,6) text_fname(i,7)]
         % combine names and topics
         
-        position = [900 455;1760 400;940 555;1400 555;1800 555];         
+        position = [900 455;1760 400;940 555;1400 555;1800 555;500 505];         
         % obtain positions to insert on image, MSPaint or any image editor
         
         RGB = insertText(blankimage,position,text_all,'FontSize',22,'BoxOpacity',0);
@@ -91,5 +81,3 @@ end
 
 % Code works for any length of data ROWWISE AND COLUMNWISE
 % Last for loop with minor changes facilitate new project implemntations
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% % GOOD LUCK % %%%%%%%%%%%%%%%%%%%%%%%%%%%
