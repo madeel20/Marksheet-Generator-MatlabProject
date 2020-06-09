@@ -11,7 +11,7 @@ filename = 'Registration_Details.xls';
 
 
 len=length(txt)
-len = 3
+
 % obtain length of text in excel or number of certificates to be generated
 % This code provides scalability
 
